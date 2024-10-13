@@ -14,7 +14,7 @@ int main()
 
 	board = init_board();
 
-	while(end <= 10)
+	while(end == 0)
 	{
 		srand(time(NULL));
 
@@ -28,18 +28,14 @@ int main()
 		else if(etat != 0)
 		{
 			display_board(board);	
-			ask_player_move(board, &player_x, &player_y);
-
+			ask_player_move(board, &player_x, &player_y, &end);
 		}
 	
-		
 
 		printf("Goal: %d, %d ", goal_x, goal_y);
 		printf("\tplayer: %d, %d ", player_x, player_y);
 		printf("\tbox: %d, %d ", box_x, box_y);
 		
-
-		end++;
 	}
 	free(board);
 

@@ -12,6 +12,6 @@ void display_board(char **board);
 
 int position(char **board, int *goal_x, int *goal_y,int *player_x, int *player_y, int *box_x, int *box_y);
 
-void ask_player_move(char **board,int *player_x,int *player_y);
+void ask_player_move(char **board,int *player_x,int *player_y, int *end);
 
 #endif

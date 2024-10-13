@@ -1,6 +1,6 @@
 #include "sokoban.h"
 
-void ask_player_move(char **board, int *player_x, int *player_y) 
+void ask_player_move(char **board, int *player_x, int *player_y,int *end) 
 {
     char input;
     printf("Entrer le movement (z/s/q/d) :\n");
@@ -30,13 +30,21 @@ void ask_player_move(char **board, int *player_x, int *player_y)
     {
     	if(board[x_temp][y_temp] == 'X')
     	{
+    		
     		int box_tempo_x = x_temp + (x_temp - *player_x);
     		int box_tempo_y = y_temp + (y_temp - *player_y);
     		board[box_tempo_x][box_tempo_y] = 'X';
+    		board[*player_x][*player_y] = ' ';
     		*player_x = x_temp;
 			*player_y = y_temp;
 			board[x_temp][y_temp] = ' ';
 			board[x_temp][y_temp] = 'o';
+
+			if(board[x_temp][y_temp] == '.')
+			{
+				printf("Gagné!");
+				*end = 1;
+			}
     	}
         else if (board[x_temp][y_temp] == ' ') 
         {
